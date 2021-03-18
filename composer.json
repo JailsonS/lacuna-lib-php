@@ -1,0 +1,11 @@
+{
+    "autoload":{
+        "psr-4":{
+            "Services\\":"services/",
+            "Utils\\":"utils/"
+        }
+    },
+    "require": {
+        "lacuna/restpki-client": "^2.7.0"
+    }
+}
