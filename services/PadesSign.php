@@ -31,9 +31,9 @@ class PadesSign extends Util
         // document.
         $userfile = isset($_GET['userfile']) ? $_GET['userfile'] : null;
         if (!empty($userfile)) {
-            $signatureStarter->setPdfToSignFromPath("app-data/{$userfile}");
+            $signatureStarter->setPdfToSignFromPath(__DIR__."/../app-data/{$userfile}");
         } else {
-            $signatureStarter->setPdfToSignFromPath('content/SampleDocument.pdf');
+            $signatureStarter->setPdfToSignFromPath(__DIR__."/../content/SampleDocument.pdf");
         }
         
         // Set the signature policy.

@@ -11,7 +11,7 @@ class PadesSignAction extends Util
     private $signerCert;
     private $filename;
 
-    public function signtureFinish()
+    public function signtureFinish(): void
     {
         // Get the token for this signature (rendered in a hidden input field, see pades-signature.php).
         $token = $_POST['token'];
@@ -27,7 +27,7 @@ class PadesSignAction extends Util
 
         // The "certificate" property of the SignatureResult object contains information about the certificate used by the user
         // to sign the file.
-        $this->$signerCert = $signatureResult->certificate;
+        $this->signerCert = $signatureResult->certificate??'';
 
         // At this point, you'd typically store the signed PDF on your database. For demonstration purposes, we'll
         // store the PDF on a temporary folder publicly accessible and render a link to it.
@@ -45,7 +45,7 @@ class PadesSignAction extends Util
     public function getSigned()
     {
         return [
-            'signerCert' => $this->signerCert?? '',
+            'signerCert' => $this->signerCert,
             'filename' => $this->filename
         ];
     }
