@@ -53,9 +53,5 @@ class AuthAction extends Util
 */
 
 $auth = new AuthAction();
-$userAuth = $auth->dispatch();
 
-echo "<pre>";
-    print_r($userAuth);
-echo "</pre>";
 
